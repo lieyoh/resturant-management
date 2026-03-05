@@ -1,0 +1,63 @@
+{% extends "./base.html" %}
+{% block title %}GOJO HOUSE - Select Your Tier{% endblock %}
+{% block content %}
+
+<section class="relative min-h-screen bg-[#0f0f0f] px-6 pt-32 pb-20 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none z-0">
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-red-900/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-yellow-900/10 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <div class="text-xs tracking-widest text-red-500 uppercase mb-3 font-semibold">Step 2: Choose Your Buffet</div>
+      <h2 class="font-serif font-black text-5xl text-white mb-4 uppercase italic">Select a Tier</h2>
+      <p class="text-gray-400 max-w-md mx-auto">All tiers include unlimited side dishes and rice. Prices are per person.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {% for tier_id, tier_info in menu.items() %}
+      <div class="group rounded-2xl p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 relative flex flex-col h-full overflow-hidden">
+        
+        <div class="absolute top-0 left-0 w-full h-1 transition-transform duration-500 scale-x-0 group-hover:scale-x-100" 
+             style="background-color: {{ tier_info.color }};"></div>
+
+        <div class="text-5xl mb-6">{{ tier_info.icon }}</div>
+        
+        <div class="flex justify-between items-start mb-2">
+            <h3 class="font-serif font-black text-3xl text-white">{{ tier_info.label }}</h3>
+            <span class="text-2xl font-black text-white">&#8369;{{ tier_info.price_add }}</span>
+        </div>
+        
+        <p class="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+          {{ tier_info.description }}
+        </p>
+
+        <div class="mb-8 space-y-2">
+            <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-3">Highlights</p>
+            {% for item in tier_info['items'][:3] %}
+            <div class="flex items-center gap-2 text-xs text-gray-400">
+                <span style="color: {{ tier_info.color }};">✦</span> {{ item.name }}
+            </div>
+            {% endfor %}
+            <div class="text-[10px] text-gray-600 mt-2">+ Many more options</div>
+        </div>
+
+        <a href="{{ url_for('customer.table_selection', tier=tier_id) }}" 
+           class="block text-center py-4 rounded-xl font-black tracking-widest text-xs transition-all uppercase"
+           style="background-color: {{ tier_info.color }}20; border: 1px solid {{ tier_info.color }}40; color: {{ tier_info.color }};">
+          Select {{ tier_info.label }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="{{ url_for('customer.reserve_selection') }}" class="text-gray-600 hover:text-white text-[10px] tracking-[0.3em] uppercase transition-colors">
+        ← Back to Options
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

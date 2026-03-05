@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}GOJO HOUSE — Premium Korean BBQ Buffet{% endblock %}</title>
+  <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif KR"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+   
+    .menu-card {
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    body { background-color: #0f0f0f; color: white; }
+  </style>
+</head>
+<body class="bg-[#0f0f0f] text-white font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="text-3xl">🔥</span>
+        <div>
+          <div class="font-serif font-black text-xl tracking-widest text-white">GOJO HOUSE</div>
+          <div class="text-xs tracking-[0.3em] text-yellow-500 uppercase">Korean BBQ Buffet</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="{{ url_for('customer.index') }}" class="text-sm tracking-wider hover:text-yellow-400 transition-colors uppercase">Home</a>
+        <a href="/menu" class="text-sm tracking-wider hover:text-yellow-400 transition-colors uppercase">Menu</a>
+        <a href="#tiers" class="text-sm tracking-wider hover:text-yellow-400 transition-colors uppercase">Tiers</a>
+        <a href="{{ url_for('customer.reserve_selection') }}" class="px-5 py-2 bg-red-700 hover:bg-red-600 transition-colors rounded-full text-sm font-semibold tracking-wider">Reserve Now</a>
+      </div>
+      <button class="md:hidden" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-black/95 px-6 pb-6 border-t border-white/10">
+      <div class="flex flex-col gap-4 pt-4">
+        <a href="/" class="text-sm tracking-wider hover:text-yellow-400 uppercase">Home</a>
+        <a href="/menu" class="text-sm tracking-wider hover:text-yellow-400 uppercase">Menu</a>
+        <a href="#tiers" class="text-sm tracking-wider hover:text-yellow-400 uppercase">Tiers</a>
+        <a href="{{ url_for('customer.reserve_selection') }}" class="px-5 py-2 bg-red-700 text-center rounded-full text-sm font-semibold">Reserve Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-black border-t border-white/10 py-16 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+      <div>
+        <div class="font-serif font-black text-2xl mb-2">GOJO HOUSE</div>
+        <div class="text-yellow-500 text-xs tracking-widest mb-4 uppercase">Korean BBQ Buffet</div>
+        <p class="text-gray-400 text-sm leading-relaxed">The finest Korean BBQ experience — from classic to extreme, there's a tier for every palate.</p>
+      </div>
+      <div>
+        <div class="font-semibold tracking-widest uppercase text-sm mb-4">Hours</div>
+        <div class="text-gray-400 text-sm space-y-2">
+          <div class="flex justify-between"><span>Mon – Thu</span><span>11am – 10pm</span></div>
+          <div class="flex justify-between"><span>Fri – Sat</span><span>11am – 12am</span></div>
+          <div class="flex justify-between"><span>Sunday</span><span>12pm – 10pm</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold tracking-widest uppercase text-sm mb-4">Find Us</div>
+        <div class="text-gray-400 text-sm space-y-2">
+          <div>📍 123 BCP, Novaliches, Qc</div>
+          <div>📞 (02) 8888-GOJO</div>
+          <div>✉️ hello@gojohouse.ph</div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-10 pt-8 border-t border-white/10 text-center text-gray-600 text-xs">
+      © 2026 Gojo House. All rights reserved.
+    </div>
+  </footer>
+  {% block js %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

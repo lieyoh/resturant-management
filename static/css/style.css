@@ -1,0 +1,48 @@
+body { font-family: 'Inter', sans-serif; }
+.font-serif { font-family: 'Noto Serif KR', serif; }
+
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 20% 60%, rgba(220,38,38,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 25%, rgba(234,88,12,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(190,18,60,0.10) 0%, transparent 50%),
+    #0f0f0f;
+}
+
+.glow-red { box-shadow: 0 0 40px rgba(220,38,38,0.15); }
+.glow-yellow { box-shadow: 0 0 40px rgba(234,179,8,0.12); }
+
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0f0f0f; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+.nav-glass {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-40px) scale(1.2); opacity: 0.7; }
+  100% { transform: translateY(0) scale(1); opacity: 0.4; }
+}
+.spark { position: absolute; border-radius: 50%; pointer-events: none; animation: floatUp 5s ease-in-out infinite; }
+.spark-1 { width:4px; height:4px; background:#f97316; top:25%; left:12%; animation-delay:0s; }
+.spark-2 { width:3px; height:3px; background:#ef4444; top:55%; left:82%; animation-delay:1.5s; animation-duration:7s; }
+.spark-3 { width:5px; height:5px; background:#fb923c; top:70%; left:45%; animation-delay:3s; animation-duration:6s; }
+.spark-4 { width:3px; height:3px; background:#f43f5e; top:35%; left:65%; animation-delay:2s; animation-duration:8s; }
+
+.tier-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.tier-card:hover { transform: translateY(-6px); }
+
+.menu-card { transition: border-color 0.2s, background 0.2s; }
+
+.page { display: none; }
+.page.active { display: block; }
+
+.tab-active-green { background: rgba(74,222,128,0.1) !important; color: #4ade80 !important; border-color: rgba(74,222,128,0.5) !important; }
+.tab-active-yellow { background: rgba(234,179,8,0.1) !important; color: #eab308 !important; border-color: rgba(234,179,8,0.5) !important; }
+.tab-active-red { background: rgba(239,68,68,0.1) !important; color: #ef4444 !important; border-color: rgba(239,68,68,0.5) !important; }
+.tab-active-white { background: rgba(255,255,255,0.1) !important; color: white !important; border-color: rgba(255,255,255,0.3) !important; }

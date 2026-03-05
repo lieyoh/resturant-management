@@ -1,0 +1,57 @@
+{% extends "./base.html" %}
+{% block content %}
+<section class="relative min-h-screen bg-[#0f0f0f] px-6 pt-32 pb-20">
+  <div class="max-w-2xl mx-auto relative z-10">
+    
+    <div class="flex justify-between items-center mb-12 p-6 rounded-2xl border border-white/5 bg-white/[0.02]">
+        <div>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Table Assignment</p>
+            <h3 class="text-white font-serif font-black text-2xl uppercase italic">Table {{ table_id }}</h3>
+        </div>
+        <div class="text-right">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Selected Tier</p>
+            <h3 class="text-yellow-500 font-serif font-black text-2xl uppercase italic">{{ tier_info.label }}</h3>
+        </div>
+    </div>
+
+    <form class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Full Name</label>
+          <input type="text" placeholder="Gojo Satoru" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500/50">
+        </div>
+        <div class="space-y-2">
+          <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Phone Number</label>
+          <input type="tel" placeholder="0912 345 6789" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500/50">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Date</label>
+          <input type="date" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500/50">
+        </div>
+        <div class="space-y-2">
+          <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Time Slot</label>
+          <select class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500/50">
+            <option value="" disabled selected class="bg-[#1a1a1a] text-gray-500">Select a time</option>
+            <option value="11:00 AM" class="bg-[#1a1a1a] text-white">11:00 AM</option>
+            <option value="01:00 PM" class="bg-[#1a1a1a] text-white">01:00 PM</option>
+            <option value="03:00 PM" class="bg-[#1a1a1a] text-white">03:00 PM</option>
+            <option value="06:00 PM" class="bg-[#1a1a1a] text-white">06:00 PM</option>
+            <option value="08:00 PM" class="bg-[#1a1a1a] text-white">08:00 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-2 text-center pt-8">
+        <p class="text-xs text-gray-500 mb-4">By confirming, you agree to our 2-hour dining limit.</p>
+        <button type="submit" class="w-full py-5 rounded-2xl bg-yellow-500 text-black font-black tracking-[0.2em] uppercase hover:bg-yellow-400 transition-all shadow-xl shadow-yellow-500/10">
+          Complete Reservation
+        </button>
+      </div>
+    </form>
+
+  </div>
+</section>
+{% endblock %}

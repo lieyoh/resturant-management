@@ -1,0 +1,74 @@
+{% extends "./base.html" %}
+{% block title %}GOGI HOUSE - Reservation Selection{% endblock %}
+{% block content %}
+
+<section class="relative min-h-screen bg-[#0f0f0f] px-6 pt-32 pb-20 overflow-hidden">
+  
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-red-900/10 rounded-full blur-[120px]"></div>
+    <div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-yellow-900/10 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
+    
+    <div class="text-center mb-16">
+      <div class="text-xs tracking-widest text-red-500 uppercase mb-3 font-semibold">Book Your Experience</div>
+      <h2 class="font-serif font-black text-5xl text-white mb-4">Reservation Type</h2>
+      <p class="text-gray-400 max-w-md mx-auto">Choose how you'd like to dine with us today.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-stretch">
+      
+      <div class="group rounded-2xl p-8 md:p-10 border border-white/5 bg-white/[0.03] hover:bg-white/[0.05] hover:border-yellow-500/30 transition-all duration-300 relative overflow-hidden flex flex-col">
+        <div class="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-yellow-500 transition-all duration-500"></div>
+        
+        <div class="text-5xl mb-6">🪑</div>
+        <h3 class="font-serif font-black text-3xl text-white mb-3">Table Seating</h3>
+        <p class="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+          Standard reservation for individuals, couples, or small groups. Choose your preferred tier and enjoy unlimited grilling.
+        </p>
+        
+        <ul class="space-y-3 mb-10 text-sm text-gray-500">
+          <li class="flex items-center gap-2"><span class="text-yellow-500">✔</span> 1-10 Persons</li>
+          <li class="flex items-center gap-2"><span class="text-yellow-500">✔</span> Instant Confirmation</li>
+          <li class="flex items-center gap-2"><span class="text-yellow-500">✔</span> 2-Hour Dining Window</li>
+        </ul>
+
+        <a href="{{ url_for('customer.reserve_tiers') }}" class="block text-center py-4 rounded-xl bg-yellow-500 text-black font-black tracking-widest text-xs hover:bg-yellow-400 transition-colors uppercase">
+          Book a Table
+        </a>
+      </div>
+
+      <div class="group rounded-2xl p-8 md:p-10 border border-white/5 bg-white/[0.03] hover:bg-white/[0.05] hover:border-red-500/30 transition-all duration-300 relative overflow-hidden flex flex-col">
+        <div class="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-red-600 transition-all duration-500"></div>
+        
+        <div class="text-5xl mb-6">🎉</div>
+        <h3 class="font-serif font-black text-3xl text-white mb-3">Private Events</h3>
+        <p class="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+          Celebrate birthdays, corporate parties, or large gatherings in our exclusive function rooms with curated buffet packages.
+        </p>
+
+        <ul class="space-y-3 mb-10 text-sm text-gray-500">
+          <li class="flex items-center gap-2"><span class="text-red-500">✔</span> 15+ Persons</li>
+          <li class="flex items-center gap-2"><span class="text-red-500">✔</span> Customizable Menu</li>
+          <li class="flex items-center gap-2"><span class="text-red-500">✔</span> Private Function Area</li>
+        </ul>
+
+        <a href="#" class="block text-center py-4 rounded-xl border border-red-600 text-red-500 font-black tracking-widest text-xs hover:bg-red-600 hover:text-white transition-colors uppercase">
+          Inquire for Event
+        </a>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="{{ url_for('customer.index') }}" class="text-gray-500 hover:text-white text-xs tracking-widest uppercase transition-colors">
+        ← Back to Home
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock %}
